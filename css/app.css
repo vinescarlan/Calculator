@@ -55,7 +55,7 @@ a:hover, a:focus {
   border-radius: 100%;
   transition: all 0.2s ease-out;
 }
-.result {
+#result {
   margin: 25px 10px;
   text-align: right;
   color: #fff;
