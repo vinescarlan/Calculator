@@ -11,16 +11,29 @@ var prevNum,
 	currentNum,
 	display = document.getElementById('result');
 
+// When a "number" button is clicked
 function getValue() {
+	// Check if number count on display is equal to 13
+	//   to prevent overflowing of numbers in display
 	if (display.innerHTML.length < 13) {
+		// (currentNum == undefined) == (display == 0)
 		if (currentNum === undefined) {
+			// Prevent calc from displaying a number starting with 0
+			if (parseInt(this.value) === 0) {
+				if (display.innerHTML.indexOf(0) === 0) {
+					return false; // Prevent the execution of ff. lines of code
+				}
+			}
+			
+			// If the display is 0, it will be replace by the new value
+			//   rather than concatenate to it
 			currentNum = this.value;
 			display.innerHTML = currentNum;
 		} else {
 			currentNum = currentNum + this.value;
 			display.innerHTML = currentNum;
 		}
-		console.log(display.innerHTML.length);
+	// If num count on display is greater than 13, stop getting values
 	} else return false;
 }
 
