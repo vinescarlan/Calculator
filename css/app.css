@@ -87,7 +87,7 @@ a:hover, a:focus {
 .memory-controls input {
   background: #099cc1;
 }
-.function {
+.function, .operator {
   background: #3398aa;
 }
 .number {
