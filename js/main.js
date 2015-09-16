@@ -128,6 +128,12 @@ document.getElementById('equal').onclick = equal;
 		set current num and previous num = undefined
 		set display = 0 */
 
+function clearAll () {
+	inuseOperator = currentNum = prevNum = undefined;
+	display.innerHTML = 0;
+}
+
+document.getElementById('clear').onclick = clearAll;
 /* 	When "decimal" button (.) is clicked
 		add "." to current num
 		display it */
