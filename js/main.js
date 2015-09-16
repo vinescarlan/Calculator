@@ -71,10 +71,13 @@ function isOperating() {
 
 function getOperator() {
 	if (!isOperating()) {
-		// This will prevent the display from returning NaN if user 
-		// did NOT enter a value || just clicked an operator in the first use
-		if (currentNum === undefined) prevNum = 0;
-		else prevNum = currentNum;
+		if (prevNum != parseFloat(display.innerHTML)) {
+			// This will prevent the display from returning NaN if user 
+			// did NOT enter a value || just clicked an operator in the first use
+			if (currentNum === undefined) prevNum = 0;
+			else prevNum = currentNum;
+		}
+
 		// Reset currentNum
 		currentNum = undefined;
 		// Add operator sign in display
@@ -111,6 +114,7 @@ function equal() {
 
 		// TO DO -----> change "delete" button (x) to (=)
 		prevNum = display.innerHTML;
+		console.log(prevNum);
 	} else {
 		console.log("Can't perform anything, operator is undefined");
 	}
