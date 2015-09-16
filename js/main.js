@@ -1,12 +1,3 @@
-/*  When a "number" button is clicked
-		check if current num is undefined
-			if yes,
-				set current num = buttons value
-			if no,
-				set current num = current num + buttons value
-				set display = current num
-				(e.g. display is "23" and "1" is clicked, make display = "231") */
-
 var prevNum,
 	currentNum,
 	display = document.getElementById('result');
@@ -15,7 +6,7 @@ var prevNum,
 function getValue() {
 	// Check if number count on display is equal to 13
 	//   to prevent overflowing of numbers in display
-	if (display.innerHTML.length < 13) {
+	if (display.currentNum.length < 13) {
 		// (currentNum == undefined) == (display == 0)
 		if (currentNum === undefined) {
 			// Prevent calc from displaying a number starting with 0
@@ -24,17 +15,24 @@ function getValue() {
 					return false; // Prevent the execution of ff. lines of code
 				}
 			}
-			
-			// If the display is 0, it will be replace by the new value
-			//   rather than concatenate to it
+
 			currentNum = this.value;
-			display.innerHTML = currentNum;
+			if (parseInt(display.innerHTML) === 0) {
+				// If the display is 0, it will be replace by the button's value
+				//   rather than concatenate to it
+				display.innerHTML = currentNum;
+			} else {
+				display.innerHTML += currentNum;
+			}
 		} else {
-			currentNum = currentNum + this.value;
-			display.innerHTML = currentNum;
+			// Add the value to currentNum so that it can be tracked
+			//   by operator functions later
+			currentNum += this.value;
+			display.innerHTML += this.value;
 		}
+	}
 	// If num count on display is greater than 13, stop getting values
-	} else return false;
+	else return false;
 }
 
 var numberBtns = document.querySelectorAll('.number');
@@ -54,6 +52,35 @@ for (var i = 0, len = numberBtns.length; i < len; i++) {
 				call "equals" function to display result
 				then add "operator to display"
 			both before, check if current num is 0 -> TODO */
+
+var inuseOperator;
+
+function getOperator() {
+	var operators = ["+", "-", "*", "/"];
+
+	function checkForOperators() {
+		for (i = 0, len = operators.length; i < len; i++) {
+			if (display.innerHTML.indexOf(operators[i]) == -1) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+	}
+
+	if (checkForOperators()) {
+		prevNum = currentNum;
+		currentNum = undefined;
+		display.innerHTML += "+";
+		inuseOperator = "+";
+	} else {
+		console.log('false');
+	}
+}
+
+var operatorBtns = document.querySelectorAll('.operator');
+
+operatorBtns[3].onclick = getOperator;
 
 /*  When "equals" (=) is clicked or called
 		* check if inuse operator is not undefined to prevent running equal() when
