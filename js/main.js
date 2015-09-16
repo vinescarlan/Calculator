@@ -6,7 +6,7 @@ var prevNum,
 function getValue() {
 	// Check if number count on display is equal to 13
 	//   to prevent overflowing of numbers in display
-	if (display.currentNum.length < 13) {
+	if (currentNum === undefined || currentNum.length < 13) {
 		// (currentNum == undefined) == (display == 0)
 		if (currentNum === undefined) {
 			// Prevent calc from displaying a number starting with 0
@@ -29,6 +29,9 @@ function getValue() {
 			//   by operator functions later
 			currentNum += this.value;
 			display.innerHTML += this.value;
+		}
+		if (display.innerHTML.length > 18) {
+			display.style.fontSize = "16px";
 		}
 	}
 	// If num count on display is greater than 13, stop getting values
