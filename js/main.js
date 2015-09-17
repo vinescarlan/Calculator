@@ -75,7 +75,7 @@ function isOperating() {
 	}
 }
 
-// Make display sign from encircled X to =
+// Make display sign from = to encircled X
 function changeDisplaySign() {
 	// Change display sign
 	var x = document.querySelector('.clear-entry');
