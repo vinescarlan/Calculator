@@ -155,3 +155,64 @@ document.getElementById('clear').onclick = clearAll;
 /* 	When "decimal" button (.) is clicked
 		add "." to current num
 		display it */
+
+// Constructor
+function Calculator (operator) {
+	this.operator = operator;
+}
+
+Calculator.prototype.perform = function () {
+	if (!isOperating()) {
+		changeDisplaySign(); // So, users can input number
+		if (prevNum != parseFloat(display.innerHTML)) {
+			// This will prevent the display from returning NaN if user 
+			// did NOT enter a value || just clicked an operator in the first use
+			if (currentNum === undefined) prevNum = 0;
+			else prevNum = currentNum;
+		}
+
+		// Reset currentNum
+		currentNum = undefined;
+		// Add operator sign in display
+		display.innerHTML += this.operator;
+		inuseOperator = this.operator;
+	} else {
+		// Call "equal" function to display result
+		equal(); // So users can keep adding numbers
+		changeDisplaySign(); // So users can add numbers to display
+		currentNum = undefined;
+		// Then add "operator to display"
+		display.innerHTML += this.operator; // To prevent concatenating of numbers
+	}
+};
+
+var add = new Calculator("+");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
