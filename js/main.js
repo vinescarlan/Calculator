@@ -9,7 +9,7 @@ function getValue() {
 	if (document.querySelector('.clear-entry').className.indexOf('no-border') != -1) {
 		return false;
 	}
-	
+
 	// Check if number count on display is equal to 13
 	//   to prevent overflowing of numbers in display
 	// Note: undefined does not have a length property so we need to check for it
@@ -75,6 +75,14 @@ function isOperating() {
 	}
 }
 
+// Make display sign from encircled X to =
+function changeDisplaySign() {
+	// Change display sign
+	var x = document.querySelector('.clear-entry');
+	x.innerHTML = "&times;";
+	x.className = "clear-entry";
+}
+
 function getOperator() {
 	if (!isOperating()) {
 		if (prevNum != parseFloat(display.innerHTML)) {
@@ -120,9 +128,9 @@ function equal() {
 
 		// Change "delete" button (x) to (=)
 		var x = document.querySelector('.clear-entry');
-        x.innerHTML = "=";
+		x.innerHTML = "=";
 		x.className += " no-border";
-		
+
 		prevNum = display.innerHTML;
 		console.log(prevNum);
 	} else {
@@ -137,7 +145,7 @@ document.getElementById('equal').onclick = equal;
 		set current num and previous num = undefined
 		set display = 0 */
 
-function clearAll () {
+function clearAll() {
 	inuseOperator = currentNum = prevNum = undefined;
 	display.innerHTML = 0;
 }
