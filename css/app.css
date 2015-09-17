@@ -40,7 +40,7 @@ a:hover, a:focus {
   line-height: 100%;
   position: relative;
 }
-.delete {
+.clear-entry {
   color: #fff;
   font-family: 'Times New Roman', serif;
   width: 30px;
@@ -78,10 +78,10 @@ a:hover, a:focus {
   transition: border 0.2s ease-out;
 }
 [type="button"]:hover, [type="button"]:focus,
-.delete:hover {
+.clear-entry:hover {
   border: 2px solid #0ff;
 }
-.delete:hover {
+.clear-entry:hover {
   color: #0ff;
 }
 .memory-controls input {
