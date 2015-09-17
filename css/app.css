@@ -55,6 +55,9 @@ a:hover, a:focus {
   border-radius: 100%;
   transition: all 0.2s ease-out;
 }
+.no-border {
+  border: 2px solid transparent;
+}
 #result {
   margin: 25px 10px;
   text-align: right;
