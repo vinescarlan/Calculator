@@ -116,11 +116,6 @@ function equal() {
 	// check if inuse operator is not undefined to prevent running equal() when
 	// there's no operator in use
 	if (inuseOperator !== undefined) {
-		// Testing: for checking if display is NaN
-		if (isNaN(parseInt(display.innerHTML))) {
-			console.log(display.innerHTML);
-			display.innerHTML = "Syntax Error";
-		}
 		// check if current no. is undefined
 		// to indicate whether the operation should be repeated
 		if (currentNum === undefined) {
