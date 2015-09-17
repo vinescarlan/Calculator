@@ -5,6 +5,11 @@ var prevNum,
 
 // When a "number" button is clicked
 function getValue() {
+	// Prevent adding number in display when displayed sign is equals
+	if (document.querySelector('.clear-entry').className.indexOf('no-border') != -1) {
+		return false;
+	}
+	
 	// Check if number count on display is equal to 13
 	//   to prevent overflowing of numbers in display
 	// Note: undefined does not have a length property so we need to check for it
