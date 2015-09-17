@@ -147,6 +147,8 @@ document.getElementById('equal').onclick = equal;
 		set display = 0 */
 
 function clearAll() {
+	// Reset all from the start
+	changeDisplaySign();
 	inuseOperator = currentNum = prevNum = undefined;
 	display.innerHTML = 0;
 }
