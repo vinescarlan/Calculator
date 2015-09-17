@@ -141,11 +141,6 @@ function equal() {
 
 document.getElementById('equal').onclick = equal;
 
-/*  When "clear all" (AC) is clicked
-		set in use operator = undefined
-		set current num and previous num = undefined
-		set display = 0 */
-
 function clearAll() {
 	// Reset all from the start
 	changeDisplaySign();
