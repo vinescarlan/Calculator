@@ -98,9 +98,12 @@ function getOperator() {
 		display.innerHTML += "+";
 		inuseOperator = "+";
 	} else {
-		// TO DO -----> call "equals" function to display result
-		// then add "operator to display"
-		console.log('Operator is already in use');
+		// Call "equal" function to display result
+		equal(); // So users can keep adding numbers
+		changeDisplaySign(); // So users can add numbers to display
+		currentNum = undefined;
+		// Then add "operator to display"
+		display.innerHTML += "+"; // To prevent concatenating of numbers
 	}
 }
 
