@@ -1,4 +1,3 @@
-// TODO -----> fix the bug: when equal then click on a number, prevnum does not change
 var prevNum,
 	currentNum,
 	display = document.getElementById('result');
