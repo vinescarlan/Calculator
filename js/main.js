@@ -85,6 +85,7 @@ function changeDisplaySign() {
 
 function getOperator() {
 	if (!isOperating()) {
+		changeDisplaySign(); // So, users can input number
 		if (prevNum != parseFloat(display.innerHTML)) {
 			// This will prevent the display from returning NaN if user 
 			// did NOT enter a value || just clicked an operator in the first use
