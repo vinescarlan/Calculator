@@ -1,3 +1,4 @@
+// TODO -----> fix the bug: when equal then click on a number, prevnum does not change
 var prevNum,
 	currentNum,
 	display = document.getElementById('result');
@@ -112,13 +113,16 @@ function equal() {
 			display.innerHTML = parseFloat(prevNum) + parseFloat(currentNum);
 		}
 
-		// TO DO -----> change "delete" button (x) to (=)
+		// Change "delete" button (x) to (=)
+		var x = document.querySelector('.clear-entry');
+        x.innerHTML = "=";
+		x.className += " no-border";
+		
 		prevNum = display.innerHTML;
 		console.log(prevNum);
 	} else {
 		console.log("Can't perform anything, operator is undefined");
 	}
-
 }
 
 document.getElementById('equal').onclick = equal;
@@ -134,6 +138,7 @@ function clearAll () {
 }
 
 document.getElementById('clear').onclick = clearAll;
+
 /* 	When "decimal" button (.) is clicked
 		add "." to current num
 		display it */
