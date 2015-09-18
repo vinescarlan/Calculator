@@ -180,11 +180,12 @@ Calculator.prototype.perform = function () {
 };
 
 var add = new Calculator("+");
+var minus = new Calculator("-");
 
 var operatorBtns = document.querySelectorAll('.operator');
 
 operatorBtns[3].onclick = function () { add.perform(); };
-
+operatorBtns[2].onclick = function () { minus.perform(); };
 
 
 
