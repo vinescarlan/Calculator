@@ -1,3 +1,4 @@
+// TODO -----> line #122: find a way to change the operator to this.operator
 var prevNum,
 	currentNum,
 	display = document.getElementById('result');
@@ -5,7 +6,7 @@ var prevNum,
 // When a "number" button is clicked
 function getValue() {
 	// Prevent adding number in display when displayed sign is equals
-	if (document.querySelector('.clear-entry').className.indexOf('no-border') != -1) {
+	if (document.querySelector('.clear-entry').className.indexOf('no-border') !== -1) {
 		return false;
 	}
 
@@ -119,9 +120,10 @@ function equal() {
 		// check if current no. is undefined
 		// to indicate whether the operation should be repeated
 		if (currentNum === undefined) {
-			display.innerHTML = parseFloat(prevNum) + parseFloat(prevNum);
+			// Uses eval to prevent code repetition
+			display.innerHTML = eval(parseFloat(prevNum) + inuseOperator + parseFloat(prevNum));
 		} else {
-			display.innerHTML = parseFloat(prevNum) + parseFloat(currentNum);
+			display.innerHTML = eval(parseFloat(prevNum) + inuseOperator + parseFloat(currentNum));
 		}
 
 		// Change "delete" button (x) to (=)
@@ -182,8 +184,6 @@ Calculator.prototype.perform = function () {
 };
 
 var add = new Calculator("+");
-
-
 
 
 
