@@ -108,10 +108,6 @@ function getOperator() {
 	}
 }
 
-var operatorBtns = document.querySelectorAll('.operator');
-
-operatorBtns[3].onclick = getOperator;
-
 // When "equals" (=) is clicked or called
 function equal() {
 	// check if inuse operator is not undefined to prevent running equal() when
@@ -185,9 +181,9 @@ Calculator.prototype.perform = function () {
 
 var add = new Calculator("+");
 
+var operatorBtns = document.querySelectorAll('.operator');
 
-
-
+operatorBtns[3].onclick = add.perform;
 
 
 
