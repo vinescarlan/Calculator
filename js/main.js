@@ -183,7 +183,7 @@ var add = new Calculator("+");
 
 var operatorBtns = document.querySelectorAll('.operator');
 
-operatorBtns[3].onclick = add.perform;
+operatorBtns[3].onclick = function () { add.perform(); };
 
 
 
