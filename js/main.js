@@ -1,4 +1,4 @@
-// TODO -----> line #122: find a way to change the operator to this.operator
+// TODO -----> Fix is operating
 var prevNum,
 	currentNum,
 	display = document.getElementById('result');
@@ -60,18 +60,18 @@ for (var i = 0, len = numberBtns.length; i < len; i++) {
 	numberBtns[i].addEventListener('click', getValue);
 }
 
-var inuseOperator;
+var inuseOperator, operatorValue;
 
 // Check if an operator exist on display
 function isOperating() {
+	// True = operator is in use, False = no operator is in use
 	var operators = ["+", "-", "*", "/"];
-	for (var i = 0, len = operators.length; i < len; i++) {
-		// If an operator is found
-		if (display.innerHTML.indexOf(operators[i]) !== -1) {
-			return true; // So, the operation will not proceed
-		} else {
-			return false;
-		}
+	// If an operator is found
+	if (display.innerHTML.indexOf(operatorValue) === -1) {
+		console.log('success!');
+		return false; // So, the operation will proceed
+	} else {
+		return true; // So, operation will NOT proceed
 	}
 }
 
@@ -150,12 +150,12 @@ document.getElementById('clear').onclick = clearAll;
 		display it */
 
 // Constructor
-function Calculator (operator) {
+function Calculator(operator) {
 	this.operator = operator;
 }
 
 Calculator.prototype.perform = function () {
-	if (!isOperating()) {
+	if (isOperating()) {
 		changeDisplaySign(); // So, users can input number
 		if (prevNum != parseFloat(display.innerHTML)) {
 			// This will prevent the display from returning NaN if user 
@@ -184,27 +184,11 @@ var minus = new Calculator("-");
 
 var operatorBtns = document.querySelectorAll('.operator');
 
-operatorBtns[3].onclick = function () { add.perform(); };
-operatorBtns[2].onclick = function () { minus.perform(); };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+operatorBtns[3].onclick = function () {
+	operatorValue = this.value;
+	add.perform();
+};
+operatorBtns[2].onclick = function () {
+	operatorValue = this.value;
+	minus.perform();
+};
